@@ -1,6 +1,6 @@
 from base_de_datos import bd
 
-class Ubicacion(bd.Model):
+class UbicacionModel(bd.Model):
     __tablename__="t_ubicacion"
     ubi_id = bd.Column("ubi_id",bd.Integer,primary_key=True)
     ubi_ciud=bd.Column("ubi_ciud",bd.String(45))
