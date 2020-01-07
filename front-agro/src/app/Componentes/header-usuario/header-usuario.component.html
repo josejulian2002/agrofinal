@@ -1,0 +1,73 @@
+<header class="container-fluid" style="position: fixed;">
+    <div class="row border-bottom" style="height: 6em;background-color: white;">
+        <div class="col-2">
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-light mt-2" (click)="shownav()"><i class="fa fa-list fa-2x" aria-hidden="true">
+                        </i>
+                    <h6>Menu</h6>
+                    </button>
+                    <img src="assets/img/nesta.PNG" style="height:60px;" class="ml-4">
+                </div>
+            </div>
+        </div>
+        <div class="col-7">
+            <div class="row border-bottom" style="height: 2em;">
+                <h6 class="ml-3">Del campo a la olla 🍲</h6>
+            </div>
+            <div class="row" style="height: 4em;">
+                <div class="col-12 mt-2">
+                    <div class="row justify-content-around">
+                        <input type="text" class="col-8 form-control rounded-pill" placeholder="Busca lo que quieras 🍇🍉🍊🥑🍍🍅 ...">
+                        <button class="col-3 btn rounded-pill" style="background-color: rgb(75, 255, 62);color: white;">🔎 <strong>BUSCAR</strong></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 justify-content-center">
+            <div class="row justify-content-around mt-2">
+                <div class="col-5 align-self-center text-center bg-light pt-2 pb-2 rounded shadow-sm">
+                    <a href=" " style="text-decoration: none;color: rgb(4, 131, 11);"><i class="fas fa-user-circle mr-2"></i> Mi cuenta</a>
+                </div>
+                <div class="col-5 align-self-center text-center  bg-light pt-2 pb-2 rounded shadow-sm">
+                    <a href=" " style="text-decoration: none;color: rgb(4, 131, 11);"><i class="fas fa-sign-out-alt mr-2"></i> Salir</a>
+                </div>
+
+            </div>
+            <div class="row justify-content-end mt-2">
+                <h6 class="mt-1">Tu carrito</h6> <a class="mr-3 ml-2" href="" style="background-color: rgba(78, 255, 87, 0.698); margin-left: 1.5em; border-radius: 50%; height: 2em;width: 2em; text-decoration: none;color: rgb(255, 255, 255);"><i class="fa fa-shopping-cart mt-2" style="margin-left: 0.4em;" aria-hidden="true"></i></a>
+            </div>
+
+        </div>
+    </div>
+    <nav class="row rounded-right" style="height: 100vh;width:13em;border-right: 0.2em solid rgba(128, 128, 128, 0.301);" id="navmenu">
+        <div class="" style="width: 100%;">
+            <div style="height: 5em;" class="border-bottom">
+                <button class="ml-3 mt-2 btn" id="btnreturn" (click)="returnnav()"><i class="fa fa-arrow-left fa-x" aria-hidden="true"></i></button>
+                <img src="assets/img/nesta.PNG" style="height:60px;" class="ml-2 mt-2">
+            </div>
+
+            <div class="btnnavbar from-left rounded-0 border-0" href="" style="text-decoration: none;">
+                <h6><i class="fa fa-home fa-x mr-4" aria-hidden="true"></i>Inicio</h6>
+            </div>
+            <div class="btnnavbar from-left rounded-0 border-0" href="" style="text-decoration: none;">
+                <h6><i class="fa fa-shopping-cart fa-x mr-4" aria-hidden="true"></i>Productos</h6>
+            </div>
+            <div class="btnnavbar from-left rounded-0 border-0" href="" style="text-decoration: none;">
+                <h6><i class="fa fa-check mr-4" aria-hidden="true"></i>Pedidos</h6>
+            </div>
+            <div class="btnnavbar from-left rounded-0 border-0" href="" style="text-decoration: none;">
+                <h6><i class="fas fa-user-circle fa-x mr-4"></i>Mi Perfil</h6>
+            </div>
+            <div class="btnnavbar from-left rounded-0 border-0" href="" style="text-decoration: none;">
+                <h6><i class="fas fa-hands-helping fa-x mr-4" aria-hidden="true"></i>Ayuda</h6>
+            </div>
+            <div class="row justify-content-center" style="margin-top:30vh;">
+                <button class="col-9 mb-2 btn" style="color: rgb(255, 254, 254); background-color: rgb(75, 255, 62);">
+                    <i class="fas fa-sign-in-alt mr-2 "></i>Cerrar Sesión
+                </button>
+            </div>
+        </div>
+    </nav>
+</header>
+<div style="height: 6em;"></div>

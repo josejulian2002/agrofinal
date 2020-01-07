@@ -1,0 +1,31 @@
+footer {
+    margin: 0em !important;
+    height: 12em !important;
+    background-color: #000000c2;
+    --c: white;
+    box-sizing: content-box !important;
+}
+
+.callcenter {
+    color: white;
+}
+
+div h5 {
+    color: rgba(255, 255, 255, 0.637);
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.548);
+    width: 8em !important;
+}
+
+ul {
+    padding-inline-start: 0em;
+}
+
+li {
+    list-style: none;
+    margin-bottom: 0.5em;
+}
+
+li a {
+    text-decoration: none;
+    color: var(--c);
+}
