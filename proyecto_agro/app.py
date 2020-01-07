@@ -2,7 +2,7 @@ from flask import Flask
 from flask_restful import Api
 from base_de_datos import bd
 
-from Models import CategoriaModel,DetallePedidoModel,DisponibilidadModel,EstadoModel,ImagenProductoModel,PedidoModel,PrecioModel,ProductoModel,ProveedorModel,ProveedorProductoModel,TipoPagoModel,TipoTransporteModel,TipoUsuarioModel,TransporteModel,UbicacionModel,UnidadModel,UsuarioModel
+from Models import CategoriaModel,DetallePedidoModel,ChatModel,PresentacionModel,AlmacenModel,CalificacionModel,EstadoModel,ImagenProductoModel,PedidoModel,PrecioModel,ProductoModel,ProveedorModel,ProveedorProductoModel,TipoPagoModel,TipoTransporteModel,TipoUsuarioModel,TransporteModel,UbicacionModel,UsuarioModel,UsuarioCategoriaModel
 
 app = Flask(__name__)
 
@@ -16,7 +16,7 @@ def inicio():
 @app.before_first_request
 def creacion_tablas():
     bd.init_app(app)
-    # bd.drop_all(app=app)
+    bd.drop_all(app=app)
     bd.create_all(app=app)
 
 if __name__=="__main__":

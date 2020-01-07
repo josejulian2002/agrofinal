@@ -1,6 +1,6 @@
 from base_de_datos import bd
 
-class PersonaPedido(bd.Model):
+class AlmacenModel(bd.Model):
     __tablename__="t_ubicacion"
     ubi_id = bd.Column("ubi_id",bd.Integer,primary_key=True)
     ubi_dir=bd.Column("ubi_dir",bd.String(200))
@@ -15,4 +15,3 @@ class PersonaPedido(bd.Model):
         self.ubi_ciudad=ciudad
         self.ubi_dir=direccion
         self.usu_id=usu_id
-        
