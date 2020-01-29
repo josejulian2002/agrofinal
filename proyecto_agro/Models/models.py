@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+
 class TipoUsuario(models.Model):
     tipousu_id = models.AutoField(primary_key=True)
     tipousu_nom = models.CharField(max_length=50,help_text="Nombre del tipo usuario", unique=True)
@@ -73,7 +74,7 @@ class Calificacion(models.Model):
 
 class Usuario(models.Model):
     usu_id = models.AutoField(primary_key=True)
-    usu_mail = models.CharField(max_length=50, help_text="Email del usuario", unique=True)
+    usu_mail = models.EmailField(max_length=50, help_text="Email del usuario", unique=True)
     usu_salt = models.TextField(unique=False)
     usu_hash = models.TextField(unique=False)
     usu_nom = models.CharField(max_length=45, help_text="Nombre del usuario", unique=False)
@@ -93,8 +94,8 @@ class Ubicacion(models.Model):
     ubi_id = models.AutoField(primary_key=True)
     ubi_dir = models.CharField(max_length=200, help_text="Direccion de la ubicacion", unique=False)
     ubi_ciudad = models.CharField(max_length=45, help_text="Ciudad de la ubicacion", unique=True)
-    ubi_lat = models.DecimalField(help_text="Latitud")
-    ubi_lng = models.DecimalField(help_text="Longitud")
+    ubi_lat = models.DecimalField(max_digits=10, decimal_places=8, help_text="Latitud")
+    ubi_lng = models.DecimalField(max_digits=10, decimal_places=8, help_text="Longitud")
     usu_id = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -141,8 +142,8 @@ class ImagenProducto(models.Model):
 class Presentacion(models.Model):
     pres_id = models.AutoField(primary_key=True)
     pres_est = models.BooleanField(default=False)
-    pres_can = models.DecimalField(unique=False)
-    pres_uni = models.DecimalField(unique=False)
+    pres_can = models.DecimalField(max_digits=10, decimal_places=2, unique=False)
+    pres_uni = models.DecimalField(max_digits=10, decimal_places=2, unique=False)
     
     class Meta:
         db_table = "t_presentacion"
@@ -151,7 +152,7 @@ class Presentacion(models.Model):
 
 class Inventario(models.Model):
     inve_id = models.AutoField(primary_key=True)
-    inve_cant = models.DecimalField(unique=False)
+    inve_cant = models.DecimalField(max_digits=10, decimal_places=2, unique=False)
     alma_id = models.ForeignKey(Almacen, on_delete=models.CASCADE)
     prod_id = models.ForeignKey(Producto, on_delete=models.CASCADE)
     pres_id = models.ForeignKey(Presentacion, on_delete=models.CASCADE)
@@ -164,7 +165,7 @@ class Pedido(models.Model):
     ped_id = models.AutoField(primary_key=True)
     ped_fechin = models.DateTimeField()
     ped_fechfin= models.DateTimeField()
-    ped_total = models.DecimalField(unique=False)
+    ped_total = models.DecimalField(max_digits=10, decimal_places=2, unique=False)
     est_id = models.ForeignKey(Estado, on_delete=models.CASCADE)
     t_ubicacion_ubi_id = models.ForeignKey(Ubicacion, on_delete=models.CASCADE)
 
@@ -176,7 +177,7 @@ class Pedido(models.Model):
 class PagoPedido(models.Model):
     pagoped_id = models.AutoField(primary_key=True)
     pagoped_url = models.TextField(unique=False)
-    pagoped_monto = models.DecimalField(unique=False)
+    pagoped_monto = models.DecimalField(max_digits=10, decimal_places=2, unique=False)
     tipopa_id = models.ForeignKey(TipoPago, on_delete=models.CASCADE)
     ped_id = models.ForeignKey(Pedido, on_delete=models.CASCADE)
 
@@ -189,7 +190,7 @@ class Precio(models.Model):
     pre_id = models.AutoField(primary_key=True)
     pre_fechin = models.DateTimeField()
     pre_fechfin= models.DateTimeField()
-    pre_precio = models.DecimalField(unique=False)
+    pre_precio = models.DecimalField(max_digits=10, decimal_places=2, unique=False)
     prod_id = models.ForeignKey(Producto, on_delete=models.CASCADE)
     pres_id = models.ForeignKey(Presentacion, on_delete=models.CASCADE)
 
@@ -202,10 +203,10 @@ class Precio(models.Model):
 class DetallePedido(models.Model):
     dped_id = models.AutoField(primary_key=True)
     dped_desc = models.CharField(max_length=100, help_text="Descripcion del detalle de pedido", unique=False)
-    dped_subtotal = models.DecimalField(unique=False)
-    dped_total = models.DecimalField(unique=False)
+    dped_subtotal = models.DecimalField(max_digits=10, decimal_places=2, unique=False)
+    dped_total = models.DecimalField(max_digits=10, decimal_places=2, unique=False)
     dped_nro = models.CharField(max_length=10, unique=False)
-    dped_cant = models.DecimalField(unique=False)    
+    dped_cant = models.DecimalField(max_digits=10, decimal_places=2, unique=False)    
     ped_id = models.ForeignKey(Pedido, on_delete=models.CASCADE)
     pre_id = models.ForeignKey(Presentacion, on_delete=models.CASCADE)
 
